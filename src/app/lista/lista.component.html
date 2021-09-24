@@ -1,0 +1,23 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th><b>Nome</b></th>
+        <th><b>Opção</b></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let aluno of listaAlunos">
+        <td>{{ aluno.nome }}</td>
+        <td>
+          <button (click)="exibir(aluno)">Ver perfil</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-container *ngIf="alunoSelecionado">
+  <app-detalhes [alunoParaExibir]="alunoSelecionado"></app-detalhes>
+</ng-container>

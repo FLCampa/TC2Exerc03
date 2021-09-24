@@ -1,0 +1,26 @@
+div {
+  display: flex;
+  justify-content: center;
+  margin-top: 6rem;
+}
+
+table {
+  text-align: center;
+  border: 1px solid;
+}
+
+td {
+  width: 150px;
+  border: 1px solid;
+}
+
+button {
+  background: transparent;
+  border-radius: 3px;
+}
+
+button:hover {
+  cursor: pointer;
+  color: blue;
+  border: solid 2px blue;
+}

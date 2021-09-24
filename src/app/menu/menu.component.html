@@ -1,0 +1,16 @@
+<h1>Boletim escolar</h1>
+
+<div>
+  <button (click)="mostrarListaAlunos()">Listar Alunos</button>
+  <button (click)="mostrarTelaCadastro()">Cadastrar Aluno</button>
+</div>
+
+<hr />
+
+<ng-container *ngIf="listarAlunos">
+  <app-lista></app-lista>
+</ng-container>
+
+<ng-container *ngIf="novoAluno">
+  <app-cadastro></app-cadastro>
+</ng-container>

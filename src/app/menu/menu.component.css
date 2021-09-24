@@ -1,0 +1,25 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0rem 0.5rem 0rem;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background: transparent;
+  margin: 0.25rem;
+}
+
+button:hover {
+  cursor: pointer;
+  color: blue;
+  border: solid 2px blue;
+}
+
+hr {
+  opacity: 0.5;
+}

@@ -1,0 +1,22 @@
+<div class="cadastro">
+  <div class="pair">
+    <label>Nome</label>
+    <input type="text" [(ngModel)]="aluno.nome" placeholder="Nome do aluno" />
+  </div>
+
+  <div class="pair">
+    <label>Idade</label>
+    <input type="number" [(ngModel)]="aluno.idade" placeholder="0" />
+  </div>
+
+  <div class="pair">
+    <label>Foto</label>
+    <input
+      type="text"
+      [(ngModel)]="aluno.foto"
+      placeholder="URL da foto do aluno Opcional"
+    />
+  </div>
+
+  <button (click)="cadastrar(aluno)">Cadastrar</button>
+</div>
