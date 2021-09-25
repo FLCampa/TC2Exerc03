@@ -11,6 +11,11 @@
   margin-bottom: 1rem;
 }
 
+label {
+  display: flex;
+  flex-direction: column;
+}
+
 input {
   width: 300px;
 }
