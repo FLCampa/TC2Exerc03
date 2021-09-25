@@ -6,7 +6,6 @@ export var listaAlunosCadastrados: Aluno[] = [
     idade: 57,
     foto: 'https://www.placecage.com/200/300'
   },
-
   {
     nome: 'Steven Seagal',
     idade: 69,
