@@ -1,6 +1,4 @@
-import { ThisReceiver } from '@angular/compiler'
 import { Component, OnInit } from '@angular/core'
-import { Aluno } from '../models/aluno.model'
 
 @Component({
   selector: 'app-menu',

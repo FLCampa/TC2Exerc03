@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import { Aluno } from '../models/aluno.model'
-import { listaAlunosCadastrados } from '../models/listaAlunos'
+import { Router } from '@angular/router'
+import { DatabaseService } from '../database.service'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-cadastro',
@@ -8,25 +9,33 @@ import { listaAlunosCadastrados } from '../models/listaAlunos'
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent implements OnInit {
-  aluno: Aluno = {
-    nome: '',
-    idade: 0,
-    foto: ''
+  formCadastro: FormGroup
+
+  constructor(private database: DatabaseService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.initForm()
   }
 
-  constructor() {}
+  private initForm() {
+    this.formCadastro = new FormGroup({
+      nome: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(5)
+      ]),
+      idade: new FormControl(null, [Validators.required, Validators.min(18)]),
+      foto: new FormControl(null)
+    })
+  }
 
-  ngOnInit(): void {}
-
-  cadastrar(aluno: Aluno): void {
-    if (aluno.idade < 18 || aluno.nome.length === 0 || !aluno.nome.trim()) {
+  onSubmit(): void {
+    if (this.formCadastro.valid) {
+      if (this.database.cadastrarAluno(this.formCadastro.value)) {
+        alert('Fomulário enviado!')
+        this.router.navigate(['/home'])
+      }
+    } else {
       alert('Erro, houve algum erro no cadastro!')
-      return
     }
-    if (aluno.foto === '') {
-      aluno.foto = 'http://www.gravatar.com/avatar/?d=mp'
-    }
-    listaAlunosCadastrados.push(aluno)
-    alert('Sucesso, Aluno ' + this.aluno.nome + ' cadastrado!')
   }
 }

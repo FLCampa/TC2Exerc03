@@ -9,9 +9,19 @@
 
     <tbody>
       <tr *ngFor="let aluno of listaAlunos">
-        <td>{{ aluno.nome }}</td>
-        <td>
-          <button (click)="exibir(aluno)">Ver perfil</button>
+        <td class="name">{{ aluno.nome }}</td>
+        <td class="btns">
+          <a routerLink="/details/{{ aluno.id }}">
+            <button class="btnPerfil">Ver perfil</button>
+          </a>
+
+          <a routerLink="/edit/{{ aluno.id }}">
+            <button class="btnEditar">Editar</button>
+          </a>
+
+          <a routerLink="/delete/{{ aluno.id }}">
+            <button class="btnDeletar">Deletar</button>
+          </a>
         </td>
       </tr>
     </tbody>
@@ -19,5 +29,5 @@
 </div>
 
 <ng-container *ngIf="alunoSelecionado">
-  <app-detalhes [alunoParaExibir]="alunoSelecionado"></app-detalhes>
+  <router-outlet></router-outlet>
 </ng-container>

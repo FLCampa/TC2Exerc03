@@ -4,22 +4,30 @@ h1 {
   margin: 2rem 0rem 0.5rem 0rem;
 }
 
-div {
+nav {
   display: flex;
   justify-content: center;
 }
 
 button {
-  background: transparent;
+  width: 200px;
+  height: 25px;
+  background: rgba(44, 62, 80, 1);
+  border: none;
   margin: 0.25rem;
+  border-radius: 5px;
+  color: white;
 }
 
 button:hover {
   cursor: pointer;
-  color: blue;
-  border: solid 2px blue;
+  filter: brightness(0.6);
 }
 
 hr {
   opacity: 0.5;
+}
+
+a {
+  text-decoration: none;
 }

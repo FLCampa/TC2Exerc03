@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
+import { DatabaseService } from '../database.service'
 import { Aluno } from '../models/aluno.model'
-import { listaAlunosCadastrados } from '../models/listaAlunos'
 
 @Component({
   selector: 'app-lista',
@@ -8,14 +8,13 @@ import { listaAlunosCadastrados } from '../models/listaAlunos'
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit {
-  @Input() listarAlunos: boolean
   listaAlunos: Aluno[]
   alunoSelecionado: Aluno
 
-  constructor() {}
+  constructor(private database: DatabaseService) {}
 
   ngOnInit(): void {
-    this.listaAlunos = listaAlunosCadastrados
+    this.listaAlunos = this.database.getAlunos()
   }
 
   exibir(aluno: Aluno): void {
